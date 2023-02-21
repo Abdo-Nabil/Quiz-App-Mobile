@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "922842780068",
+    "project_id": "quiz-app-fa673",
+    "storage_bucket": "quiz-app-fa673.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:922842780068:android:0da06e780eff67b5aaf131",
+        "android_client_info": {
+          "package_name": "com.AbdoNabil.quiz_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "922842780068-0hifccsk5285a1fi4a07l9mlmstppcnd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKiVdKusXgbxeH8ms5et86aMisIzph1A4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "922842780068-0hifccsk5285a1fi4a07l9mlmstppcnd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "922842780068-b0c5il041erh3pi0f05iccbdvie0pkit.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.AbdoNabil.quizapp.quizApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

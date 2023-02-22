@@ -78,7 +78,8 @@ Future<void> initGeneralCubit() async {
 
 //! Bloc
 
-  sl.registerFactory(() => GeneralCubit(sharedPreferences: sl()));
+  sl.registerFactory(
+      () => GeneralCubit(generalLocalData: sl(), generalRemoteData: sl()));
 
   sl.registerLazySingleton<GeneralRemoteData>(() => GeneralRemoteData());
   sl.registerLazySingleton<GeneralLocalData>(

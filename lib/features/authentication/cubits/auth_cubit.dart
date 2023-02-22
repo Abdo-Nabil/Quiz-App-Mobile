@@ -79,8 +79,8 @@ class AuthCubit extends Cubit<AuthState> {
         },
         (credential) async {
           //
-          final String userId = credential.user!.uid;
-          await generalRepo.setString(AppStrings.storedId, userId);
+          final String id = credential.user!.uid;
+          await generalRepo.setString(AppStrings.storedId, id);
           //
           final temp1 = await _saveToken(credential);
           if (temp1) {
@@ -106,10 +106,11 @@ class AuthCubit extends Cubit<AuthState> {
           _handleFailure(failure);
         },
         (credential) async {
-          final String userId = credential.user!.uid;
-          await generalRepo.setString(AppStrings.storedId, userId);
+          final String id = credential.user!.uid;
+          await generalRepo.setString(AppStrings.storedId, id);
+          //
           final either2 = await authRepo
-              .createUserAfterSign(userModel.copyWith(userId: userId));
+              .createUserAfterSign(userModel.copyWith(userId: id));
           //
           final temp1 = await _saveToken(credential);
           if (temp1) {

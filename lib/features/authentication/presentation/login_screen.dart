@@ -14,6 +14,7 @@ import '../../../core/widgets/password_form_field.dart';
 import '../../../resources/app_margins_paddings.dart';
 import '../../../resources/app_strings.dart';
 import '../../home_screen/presentation/home_screen.dart';
+import '../../shared/components/background_image.dart';
 import '../cubits/auth_cubit.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -41,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     //
     return BlocListener<AuthCubit, AuthState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is StartLoadingState) {
           DialogHelper.loadingDialog(context);
         }
@@ -63,13 +64,9 @@ class _LoginScreenState extends State<LoginScreen> {
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: Scaffold(
           body: Stack(
+            // fit: StackFit.expand,
             children: [
-              Image.asset(
-                'assets/images/background.png',
-                fit: BoxFit.fill,
-                height: double.infinity,
-                width: double.infinity,
-              ),
+              const BackgroundImage(),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

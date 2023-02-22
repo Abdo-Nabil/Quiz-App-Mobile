@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:quiz_app/features/authentication/services/models/user_model.dart';
 
 import '../../../core/error/exceptions.dart';
 import '../../../core/error/failures.dart';
@@ -17,7 +18,9 @@ class GeneralRepo {
     required this.networkInfo,
   });
 
-  //-------------Auth local data--------------------
+  static late UserModel userData;
+
+  //-------------General local data--------------------
   String? getString(String key) {
     final String? result = generalLocalData.getString(key);
     return result;
@@ -30,5 +33,22 @@ class GeneralRepo {
     } on CacheSavingException {
       return Left(CacheSavingFailure());
     }
+  }
+
+//-------------General remote data--------------------
+  Future<Either<Failure, UserModel>> getUserData() async {
+    //
+    if (await networkInfo.isConnected) {
+      try {
+        final UserModel uData = await generalRemoteData.getUserData();
+        userData = uData;
+        return Right(userData);
+      } catch (e) {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(OfflineFailure());
+    }
+    //
   }
 }

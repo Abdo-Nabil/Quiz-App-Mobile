@@ -22,6 +22,9 @@ class AppStrings {
   static const String loginNow = 'loginNow';
   static const String register = 'register';
   static const String twoPasswordsNotIdentical = 'twoPasswordsNotIdentical';
+  static const String hello = 'hello';
+  static const String availableQuizzes = 'availableQuizzes';
+  static const String retry = 'retry';
   static const String username = 'username';
   static const String enterYourName = 'enterYourName';
   static const String enterYourPhone = 'enterYourPhone';

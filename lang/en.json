@@ -85,6 +85,9 @@
   "userNotFound": "Sorry, no user found with these data",
   "wrongPassword": "Sorry, your password is wrong",
   "passwordMustBe": "Password must be 5 or more",
+  "hello": "Hello",
+  "availableQuizzes": "Available Quizzes",
+  "retry": "Retry",
 
   "youAreOnlineNow": "You are online now!",
   "youAreOfflineNow": "You are offline now!",

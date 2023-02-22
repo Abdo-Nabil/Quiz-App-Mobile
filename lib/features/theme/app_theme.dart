@@ -1,51 +1,55 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/app_margins_paddings.dart';
-import '../../resources/colors_manager.dart';
 
 class AppTheme {
   static ThemeData lightTheme(Locale locale, BuildContext context) {
     return ThemeData(
-      // textTheme: Theme.of(context)
-      //     .textTheme
-      //     .apply(bodyColor: Colors.white, displayColor: Colors.white),
-      iconTheme: const IconThemeData(
-        color: Colors.white,
-      ),
-      // fontFamily: locale.languageCode == 'en' ? 'DynaPuff' : 'Amiri',
-      // colorScheme: const ColorScheme.light().copyWith(
-      //   secondary: ColorsManager.secondary,
-      //   primary: ColorsManager.primary,
-      //   onSurface: ColorsManager.onSurface,
-      //   onSecondary: ColorsManager.onSecondary,
-      //   onBackground: ColorsManager.onBackground,
-      // ),
-      // inputDecorationTheme: InputDecorationTheme(
-      //   contentPadding: const EdgeInsets.all(AppPadding.p16),
-      //   border: OutlineInputBorder(
-      //     borderRadius: BorderRadius.circular(AppPadding.p20),
-      //   ),
-      // disabledBorder: OutlineInputBorder(
-      //   borderRadius: BorderRadius.circular(AppPadding.p20),
-      //   borderSide: BorderSide(color: Colors.white),
-      // ),
+        // textTheme: Theme.of(context)
+        //     .textTheme
+        //     .apply(bodyColor: Colors.white, displayColor: Colors.white),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+        dialogTheme: DialogTheme(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppPadding.p16),
+          ),
+        )
+        // fontFamily: locale.languageCode == 'en' ? 'DynaPuff' : 'Amiri',
+        // colorScheme: const ColorScheme.light().copyWith(
+        //   secondary: ColorsManager.secondary,
+        //   primary: ColorsManager.primary,
+        //   onSurface: ColorsManager.onSurface,
+        //   onSecondary: ColorsManager.onSecondary,
+        //   onBackground: ColorsManager.onBackground,
+        // ),
+        // inputDecorationTheme: InputDecorationTheme(
+        //   contentPadding: const EdgeInsets.all(AppPadding.p16),
+        //   border: OutlineInputBorder(
+        //     borderRadius: BorderRadius.circular(AppPadding.p20),
+        //   ),
+        // disabledBorder: OutlineInputBorder(
+        //   borderRadius: BorderRadius.circular(AppPadding.p20),
+        //   borderSide: BorderSide(color: Colors.white),
+        // ),
 
-      // enabledBorder: OutlineInputBorder(
-      //   borderSide: BorderSide(color: Colors.white),
-      //   borderRadius: BorderRadius.circular(AppPadding.p20),
-      // ),
-      // errorBorder: OutlineInputBorder(
-      //   borderRadius: BorderRadius.circular(AppPadding.p20),
-      // ),
-      // focusedBorder: OutlineInputBorder(
-      //   borderSide: BorderSide(color: Colors.white),
-      //   borderRadius: BorderRadius.circular(AppPadding.p20),
-      // ),
-      // focusedErrorBorder: OutlineInputBorder(
-      //   borderRadius: BorderRadius.circular(AppPadding.p20),
-      // ),
-      // ),
-    );
+        // enabledBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: Colors.white),
+        //   borderRadius: BorderRadius.circular(AppPadding.p20),
+        // ),
+        // errorBorder: OutlineInputBorder(
+        //   borderRadius: BorderRadius.circular(AppPadding.p20),
+        // ),
+        // focusedBorder: OutlineInputBorder(
+        //   borderSide: BorderSide(color: Colors.white),
+        //   borderRadius: BorderRadius.circular(AppPadding.p20),
+        // ),
+        // focusedErrorBorder: OutlineInputBorder(
+        //   borderRadius: BorderRadius.circular(AppPadding.p20),
+        // ),
+        // ),
+        );
   }
 
   static ThemeData darkTheme(Locale locale, BuildContext context) {
@@ -77,7 +81,7 @@ class AppTheme {
             borderRadius: BorderRadius.circular(AppPadding.p20),
           ),
           textStyle: const TextStyle().copyWith(
-            fontSize: Theme.of(context).textTheme.headline6!.fontSize,
+            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
             fontWeight: FontWeight.bold,
           ),
           padding: const EdgeInsets.all(AppPadding.p14),

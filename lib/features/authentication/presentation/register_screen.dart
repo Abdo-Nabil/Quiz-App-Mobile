@@ -14,6 +14,7 @@ import '../../../core/widgets/password_form_field.dart';
 import '../../../resources/app_margins_paddings.dart';
 import '../../../resources/app_strings.dart';
 import '../../home_screen/presentation/home_screen.dart';
+import '../../shared/components/background_image.dart';
 import '../cubits/auth_cubit.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -64,13 +65,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: Scaffold(
           body: Stack(
+            // fit: StackFit.expand,
             children: [
-              Image.asset(
-                'assets/images/background.png',
-                fit: BoxFit.fill,
-                height: double.infinity,
-                width: double.infinity,
-              ),
+              const BackgroundImage(),
               SingleChildScrollView(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

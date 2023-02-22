@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_app/config/routes/app_routes.dart';
 import 'package:quiz_app/resources/app_strings.dart';
 
 import 'features/authentication/cubits/auth_cubit.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
               //
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
+                onGenerateRoute: AppRoutes.onGenerateRoute,
                 title: AppStrings.appName_for_recent_app,
                 theme: AppTheme.lightTheme(selectedLocale, context),
                 darkTheme: AppTheme.darkTheme(selectedLocale, context),

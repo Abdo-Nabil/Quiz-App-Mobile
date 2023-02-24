@@ -3,6 +3,7 @@ import 'package:quiz_app/core/extensions/context_extension.dart';
 import 'package:quiz_app/features/home_screen/presentation/components/quiz_tile.dart';
 
 import '../../../../resources/app_margins_paddings.dart';
+import '../../../shared/surrounded_container.dart';
 
 class Body extends StatelessWidget {
   final List quizzes;
@@ -12,16 +13,9 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(AppPadding.p16),
-      child: Container(
+      child: SurroundedContainer(
+        height: context.height * 0.75,
         width: double.infinity,
-        height: context.height * 0.750,
-        decoration: ShapeDecoration(
-          // color: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppPadding.p16),
-            side: const BorderSide(color: Colors.white, width: 3),
-          ),
-        ),
         child: ListView.builder(
           itemCount: quizzes.length,
           itemBuilder: (context, index) {

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/core/extensions/string_extension.dart';
+import 'package:quiz_app/core/util/dialog_helper.dart';
+import 'package:quiz_app/core/util/navigator_helper.dart';
 import 'package:quiz_app/core/widgets/add_horizontal_space.dart';
 
 import '../../../../resources/app_margins_paddings.dart';
+import '../../../../resources/app_strings.dart';
 import '../../../quiz_screen/presentation/quiz_screen.dart';
 import '../../services/models/quiz_model.dart';
 
@@ -18,10 +22,17 @@ class QuizTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(
+        DialogHelper.messageWithActionsDialog(
           context,
-          QuizScreen.routeName,
-          arguments: quizModel,
+          AppStrings.startQuizNow.tr(context),
+          () {
+            NavigatorHelper.push(
+              context,
+              QuizScreen(
+                quizModel: quizModel,
+              ),
+            );
+          },
         );
       },
       child: Padding(
@@ -79,6 +90,7 @@ class QuizTile extends StatelessWidget {
                 const SizedBox(
                   width: AppPadding.p10,
                 ),
+                //ToDo:
                 isDone ? const Icon(Icons.check_sharp) : Container()
               ],
             ),

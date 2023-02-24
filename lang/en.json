@@ -88,6 +88,7 @@
   "hello": "Hello",
   "availableQuizzes": "Available Quizzes",
   "retry": "Retry",
+  "startQuizNow": "Do you want to start quiz now?",
 
   "youAreOnlineNow": "You are online now!",
   "youAreOfflineNow": "You are offline now!",

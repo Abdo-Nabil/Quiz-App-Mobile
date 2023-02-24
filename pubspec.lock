@@ -429,6 +429,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.5"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.27.7"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -506,6 +514,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
+  stop_watch_timer:
+    dependency: "direct main"
+    description:
+      name: stop_watch_timer
+      sha256: "3dbcd084e6a3ef2d6941a861ca6628ca119c68b5977e9666f0c55cda42649078"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.5.0"
   stream_channel:
     dependency: transitive
     description:

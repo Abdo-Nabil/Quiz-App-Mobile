@@ -8,6 +8,7 @@ import 'features/general/cubits/general_cubit.dart';
 import 'features/home_screen/cubits/home_screen_cubit.dart';
 import 'features/localization/locale/app_localizations_setup.dart';
 import 'features/localization/presentation/cubits/localization_cubit.dart';
+import 'features/quiz_screen/cubits/quiz_screen_cubit.dart';
 import 'features/theme/app_theme.dart';
 import 'features/theme/cubits/theme_cubit.dart';
 import 'injection_container.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
             create: (context) => sl<GeneralCubit>()..getInitialScreen()),
         BlocProvider(create: (context) => sl<AuthCubit>()),
         BlocProvider(create: (context) => sl<HomeScreenCubit>()),
+        BlocProvider(create: (context) => sl<QuizScreenCubit>()),
       ],
       child: BlocBuilder<LocalizationCubit, LocalizationState>(
         builder: (context, state) {

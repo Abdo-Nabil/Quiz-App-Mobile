@@ -41,26 +41,6 @@ class _HomeScreenState extends State<HomeScreen> {
   //
   @override
   Widget build(BuildContext context) {
-    // final List quizzes = [
-    //   QuizModel(
-    //     quizId: 'jhjhkhk',
-    //     quizName: 'Quiz 1',
-    //     quizDuration: 60,
-    //     questions: [
-    //       QuestionModel(
-    //         questionId: 'hghjghjgj',
-    //         question: 'how many fingers in one hand ?',
-    //         options: [
-    //           'one',
-    //           'two',
-    //           'three',
-    //           'five',
-    //         ],
-    //         answerIndex: 3,
-    //       )
-    //     ],
-    //   ),
-    // ];
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: BlocConsumer<HomeScreenCubit, HomeScreenState>(

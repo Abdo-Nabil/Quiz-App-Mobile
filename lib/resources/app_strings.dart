@@ -79,6 +79,7 @@ class AppStrings {
   static const String emailInUse = 'emailInUse';
   static const String userNotFound = 'userNotFound';
   static const String wrongPassword = 'wrongPassword';
+  static const String finish = 'finish';
 
   //
   //--------------- FireStore
@@ -160,6 +161,10 @@ class AppStrings {
   static const String contactUs = "contact_us";
   static const String inviteYourFriends = "invite_your_friends";
   static const String logout = "logout";
+  static const String finishQuiz = "finishQuiz";
+  static const String timeOut = "timeOut";
+  static const String quizTimeEnded = "quizTimeEnded";
+  static const String toHomeScreen = "toHomeScreen";
 
   // error handler
   static const String SERVER_FAILURE_MESSAGE = 'Please try again later .';

@@ -108,7 +108,12 @@
   "requestTimeOut": "انتهى وقت الطلب ",
   "requestTerminated": "تم انهاء الطلب!",
   "callNow": "اتصل الان",
-  "reject": "رفض"
+  "reject": "رفض",
+  "finishQuiz": "هل تريد انهاء الكويز وعرض درجتك؟",
+  "timeOut": "انتهى الوقت!",
+  "quizTimeEnded": "انتهى وقت الإختبار!!",
+  "toHomeScreen": "الرجوع للصفحة الرئيسية",
+  "finish": "إنهاء"
 
 
 

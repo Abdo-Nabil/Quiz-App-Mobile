@@ -87,11 +87,6 @@ class QuizTile extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  width: AppPadding.p10,
-                ),
-                //ToDo:
-                isDone ? const Icon(Icons.check_sharp) : Container()
               ],
             ),
           ),

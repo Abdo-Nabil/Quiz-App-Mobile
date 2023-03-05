@@ -58,13 +58,14 @@ class DialogHelper {
   }
 
   static Future messageWithActionDialog(
-      BuildContext context, String msg, Function onOkButton) {
+      BuildContext context, String msg, Function onOkButton,
+      {String? title}) {
     return showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-          title: Text(AppStrings.alert.tr(context)),
+          title: Text(title ?? AppStrings.alert.tr(context)),
           content: Text(msg),
           actions: [
             TextButton(
@@ -94,13 +95,14 @@ class DialogHelper {
   }
 
   static Future messageWithActionsDialog(
-      BuildContext context, String msg, Function onOkButton) {
+      BuildContext context, String msg, Function onOkButton,
+      {String? title}) {
     return showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-          title: Text(AppStrings.areYouSure.tr(context)),
+          title: Text(title ?? AppStrings.areYouSure.tr(context)),
           content: Text(msg),
           actions: [
             TextButton(

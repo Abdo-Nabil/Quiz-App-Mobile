@@ -106,7 +106,12 @@
   "requestTimeOut": "Request time out",
   "requestTerminated": "Request has been terminated!",
   "callNow": "Call Now",
-  "reject": "Reject"
+  "reject": "Reject",
+  "finishQuiz": "Do you want to end the quiz and get your score?",
+  "timeOut": "Timeout!",
+  "quizTimeEnded": "Quiz time has been ended!!",
+  "toHomeScreen": "Back to home screen",
+  "finish": "Finish"
 
 
 

@@ -19,6 +19,7 @@ import 'features/home_screen/services/home_local_data.dart';
 import 'features/home_screen/services/home_remote_data.dart';
 import 'features/home_screen/services/home_repo.dart';
 import 'features/localization/presentation/cubits/localization_cubit.dart';
+import 'features/quiz_screen/cubits/quiz_screen_cubit.dart';
 import 'features/theme/cubits/theme_cubit.dart';
 
 final sl = GetIt.instance;
@@ -29,6 +30,8 @@ Future<void> init() async {
   await initGeneralCubit();
   await initializeAuth();
   await initHomeScreen();
+  await initQuizScreen();
+  await initScoreScreen();
 }
 
 Future<void> initLocalization() async {
@@ -144,6 +147,21 @@ Future<void> initHomeScreen() async {
   sl.registerLazySingleton<HomeRepo>(() => HomeRepo(sl(), sl(), sl()));
 }
 
+Future<void> initQuizScreen() async {
+  sl.registerFactory(() => QuizScreenCubit());
+
+  // sl.registerLazySingleton<HomeRemoteData>(() => HomeRemoteData(client: sl()));
+  // sl.registerLazySingleton<HomeLocalData>(() => HomeLocalData());
+  // sl.registerLazySingleton<HomeRepo>(() => HomeRepo(sl(), sl(), sl()));
+}
+
+Future<void> initScoreScreen() async {
+  // sl.registerFactory(() => initScoreScreenCubit());
+
+  // sl.registerLazySingleton<HomeRemoteData>(() => HomeRemoteData(client: sl()));
+  // sl.registerLazySingleton<HomeLocalData>(() => HomeLocalData());
+  // sl.registerLazySingleton<HomeRepo>(() => HomeRepo(sl(), sl(), sl()));
+}
 //-----------------------------------------------------------------
 //
 // //! Features - posts

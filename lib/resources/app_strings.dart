@@ -82,7 +82,7 @@ class AppStrings {
   static const String emailContact =
       'mailto:$abdoEmail?subject=Contact Request';
   static const String appUrlOnStore =
-      "https://play.google.com/store/apps/details?id=com.AbdoNabil.one_dollar_app";
+      "https://play.google.com/store/apps/details?id=com.AbdoNabil.quiz_app";
   static const String wordTranslationNotFound =
       '**** Exception **** Word Translation Not Found ****';
 }

@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     await HomeScreenCubit.getIns(context).getData();
   }
 
-  checkForAppUpdates() {
+  checkForAppUpdates() async {
     HomeScreenCubit.getIns(context).checkAppUpdate();
   }
 

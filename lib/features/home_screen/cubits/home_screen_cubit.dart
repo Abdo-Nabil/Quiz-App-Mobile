@@ -79,6 +79,21 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     );
   }
 
+  checkAppUpdate() async {
+    final either = await generalRepo.fetchBuildNumber();
+    either.fold(
+      (l) {
+        _handleFailure(l);
+      },
+      (buildNumberOnFireBase) async {
+        String appVersion = await generalRepo.getAppVersion();
+        if (buildNumberOnFireBase != appVersion) {
+          emit(HomeScreenNeedAppUpdateState());
+        }
+      },
+    );
+  }
+
   _handleFailure(Failure failure) {
     if (failure.runtimeType == OfflineFailure) {
       emit(const HomeEndLoadingWithFailureState(

@@ -7,6 +7,7 @@ import '../../authentication/services/models/user_model.dart';
 class GeneralRemoteData {
   //
   Future<UserModel> getUserData() async {
+    //
     try {
       final userId = FirebaseAuth.instance.currentUser?.uid;
       final db = FirebaseFirestore.instance;
@@ -20,5 +21,18 @@ class GeneralRemoteData {
       throw ServerException();
     }
   }
+
   //
+  Future<String> fetchBuildNumber() async {
+    try {
+      final db = FirebaseFirestore.instance;
+      final docRef = db.collection("buildNumber").doc("buildNumber");
+      final DocumentSnapshot result = await docRef.get();
+      final jsonData = result.data() as Map<String, dynamic>;
+      return jsonData['buildNumber'];
+    } catch (e) {
+      debugPrint("GeneralRemoteData :: fetchBuildNumber :: Exception :: $e");
+      throw ServerException();
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../core/error/exceptions.dart';
@@ -31,5 +32,14 @@ class GeneralLocalData {
       throw CacheRemovingException();
     }
     return true;
+  }
+
+  Future<String> getAppVersion() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    // String appName = packageInfo.appName;
+    // String packageName = packageInfo.packageName;
+    final String version = packageInfo.version;
+    final String buildNumber = packageInfo.buildNumber;
+    return '$version+$buildNumber'; // like that ==>  1.0.0+1
   }
 }

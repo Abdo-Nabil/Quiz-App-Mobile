@@ -46,5 +46,7 @@
   "minute": "min",
   "score": "Score",
   "question": "Question",
+  "updateApp": "Please, update the app to last version.",
+  "update": "Update",
   "finish": "Finish"
 }

@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     ToastHelper.initializeToast(context);
     initHomeScreenWithData();
+    HomeScreenCubit.getIns(context).checkAppUpdate();
     super.initState();
   }
 
@@ -60,6 +61,10 @@ class _HomeScreenState extends State<HomeScreen> {
           //
           else if (state is HomeScreenSignOutSuccessState) {
             NavigatorHelper.pushReplacement(context, const LoginScreen());
+          }
+          //
+          else if (state is HomeScreenNeedAppUpdateState) {
+            DialogHelper.updateDialog(context);
           }
           //
         },
@@ -103,7 +108,8 @@ class _HomeScreenState extends State<HomeScreen> {
           }
           //
           else if (state is HomeEndLoadingWithFailureState ||
-              state is HomeScreenSignOutSuccessState) {
+              state is HomeScreenSignOutSuccessState ||
+              state is HomeScreenNeedAppUpdateState) {
             return Scaffold(
               body: Stack(
                 children: const [

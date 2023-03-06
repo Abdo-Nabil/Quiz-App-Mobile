@@ -44,6 +44,11 @@ class GeneralRepo {
     }
   }
 
+  Future<String> getAppVersion() async {
+    String result = await generalLocalData.getAppVersion();
+    return result;
+  }
+
 //-------------General remote data--------------------
   Future<Either<Failure, UserModel>> getUserData() async {
     //
@@ -52,6 +57,21 @@ class GeneralRepo {
         final UserModel uData = await generalRemoteData.getUserData();
         userData = uData;
         return Right(userData);
+      } catch (e) {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(OfflineFailure());
+    }
+    //
+  }
+
+  Future<Either<Failure, String>> fetchBuildNumber() async {
+    //
+    if (await networkInfo.isConnected) {
+      try {
+        final String buildNumber = await generalRemoteData.fetchBuildNumber();
+        return Right(buildNumber);
       } catch (e) {
         return Left(ServerFailure());
       }

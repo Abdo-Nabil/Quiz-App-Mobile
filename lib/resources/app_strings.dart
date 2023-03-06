@@ -46,6 +46,8 @@ class AppStrings {
   static const String availableQuizzes = 'availableQuizzes';
   static const String startQuizNow = 'startQuizNow';
   static const String minute = 'minute';
+  static const String updateApp = 'updateApp';
+  static const String update = 'update';
 
   //---------------Routes---------------------------------
   static const String notFoundPage = "notFoundPage";
@@ -71,6 +73,10 @@ class AppStrings {
   static const String alert = 'alert';
   static const String areYouSure = "areYouSure";
   //
+
+  static const String appBuildNumber = 'appBuildNumber'; // 1.0.0+1
+  static const String appUrlOnStore =
+      "https://play.google.com/store/apps/details?id=com.AbdoNabil.one_dollar_app";
   static const String wordTranslationNotFound =
       '**** Exception **** Word Translation Not Found ****';
 }

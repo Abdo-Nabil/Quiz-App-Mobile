@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
     //
     // debugInvertOversizedImages = true;
     //
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => sl<LocalizationCubit>()..getLocale()),

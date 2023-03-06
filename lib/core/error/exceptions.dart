@@ -21,3 +21,5 @@ class UserNotFoundException implements Exception {}
 class WrongPasswordException implements Exception {}
 
 class InvalidEmailException implements Exception {}
+
+class CacheRemovingException implements Exception {}

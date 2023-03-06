@@ -14,6 +14,11 @@ class HomeLoadingState extends HomeScreenState {
   List<Object> get props => [];
 }
 
+class HomeScreenSignOutSuccessState extends HomeScreenState {
+  @override
+  List<Object> get props => [];
+}
+
 class HomeScreenGetData extends HomeScreenState {
   final UserModel userModel;
   final List<QuizModel> quizzes;

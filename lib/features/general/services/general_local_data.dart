@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/error/exceptions.dart';
 
@@ -25,5 +23,13 @@ class GeneralLocalData {
     if (!result) {
       throw CacheSavingException();
     }
+  }
+
+  Future<bool> removeKey(String key) async {
+    final bool isRemoved = await sharedPreferences.remove(key);
+    if (!isRemoved) {
+      throw CacheRemovingException();
+    }
+    return true;
   }
 }

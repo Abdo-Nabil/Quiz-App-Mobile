@@ -165,6 +165,8 @@ class AppStrings {
   static const String timeOut = "timeOut";
   static const String quizTimeEnded = "quizTimeEnded";
   static const String toHomeScreen = "toHomeScreen";
+  static const String removingTokenError = "removingTokenError";
+  static const String signOut = "signOut";
 
   // error handler
   static const String SERVER_FAILURE_MESSAGE = 'Please try again later .';

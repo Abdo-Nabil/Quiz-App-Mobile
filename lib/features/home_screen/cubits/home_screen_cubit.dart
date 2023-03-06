@@ -10,6 +10,7 @@ import 'package:quiz_app/features/home_screen/services/models/quiz_model.dart';
 
 import '../../../core/error/failures.dart';
 import '../../../resources/app_strings.dart';
+import '../../authentication/services/auth_repo.dart';
 import '../../general/services/general_repo.dart';
 import '../services/home_repo.dart';
 
@@ -17,9 +18,11 @@ part 'home_screen_state.dart';
 
 class HomeScreenCubit extends Cubit<HomeScreenState> {
   final HomeRepo homeRepo;
+  final AuthRepo authRepo;
   final GeneralRepo generalRepo;
 
-  HomeScreenCubit(this.homeRepo, this.generalRepo) : super(HomeScreenInitial());
+  HomeScreenCubit(this.homeRepo, this.authRepo, this.generalRepo)
+      : super(HomeScreenInitial());
 
   emitInitialState() {
     emit(HomeScreenInitial());
@@ -31,7 +34,7 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
 
   Future getData() async {
     emit(HomeLoadingState());
-    await Future.delayed(const Duration(seconds: 7));
+    await Future.delayed(const Duration(seconds: 3));
     final either1 = await generalRepo.getUserData();
     final either2 = await homeRepo.getQuizzes();
     either1.fold(
@@ -59,6 +62,25 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     }
   }
 
+  Future signOut() async {
+    emit(HomeLoadingState());
+    await Future.delayed(Duration(seconds: 3));
+    final either = await authRepo.signOut();
+    either.fold(
+      (failure) {
+        _handleFailure(failure);
+      },
+      (success) async {
+        final either2 = await generalRepo.removeKey(AppStrings.storedToken);
+        either2.fold((l) {
+          _handleFailure(l);
+        }, (r) {
+          emit(HomeScreenSignOutSuccessState());
+        });
+      },
+    );
+  }
+
   _handleFailure(Failure failure) {
     if (failure.runtimeType == OfflineFailure) {
       emit(const HomeEndLoadingWithFailureState(
@@ -69,6 +91,9 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
     } else if (failure.runtimeType == CacheSavingFailure) {
       emit(const HomeEndLoadingWithFailureState(
           text: AppStrings.savingTokenError));
+    } else if (failure.runtimeType == CacheRemovingFailure) {
+      emit(const HomeEndLoadingWithFailureState(
+          text: AppStrings.removingTokenError));
     }
   }
 }

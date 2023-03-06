@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app/core/extensions/string_extension.dart';
+import 'package:quiz_app/core/util/navigator_helper.dart';
 import 'package:quiz_app/core/widgets/error_bloc.dart';
+import 'package:quiz_app/features/authentication/presentation/login_screen.dart';
 import 'package:quiz_app/features/home_screen/presentation/components/available_quizzes.dart';
 import '../../../core/util/dialog_helper.dart';
 import '../../../core/util/toast_helper.dart';
@@ -45,10 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: BlocConsumer<HomeScreenCubit, HomeScreenState>(
         listener: (context, state) {
-          // debugPrint('state: $state');
-          // if (state is HomeLoadingState) {
-          //   DialogHelper.loadingDialog(context);
-          // }
           if (state is HomeEndLoadingWithFailureState) {
             // Navigator.pop(context);
             DialogHelper.messageDialogWithRetry(
@@ -59,6 +57,11 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             );
           }
+          //
+          else if (state is HomeScreenSignOutSuccessState) {
+            NavigatorHelper.pushReplacement(context, const LoginScreen());
+          }
+          //
         },
         builder: (context, state) {
           if (state is HomeScreenGetData) {
@@ -99,7 +102,8 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
           //
-          else if (state is HomeEndLoadingWithFailureState) {
+          else if (state is HomeEndLoadingWithFailureState ||
+              state is HomeScreenSignOutSuccessState) {
             return Scaffold(
               body: Stack(
                 children: const [

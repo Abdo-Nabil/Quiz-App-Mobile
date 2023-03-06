@@ -15,7 +15,17 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppPadding.p16),
           ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(AppPadding.p16),
+              ),
+            ),
+          ),
         )
+
         // fontFamily: locale.languageCode == 'en' ? 'DynaPuff' : 'Amiri',
         // colorScheme: const ColorScheme.light().copyWith(
         //   secondary: ColorsManager.secondary,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/core/extensions/string_extension.dart';
 import 'package:quiz_app/core/util/navigator_helper.dart';
 import 'package:quiz_app/features/shared/components/background_image.dart';
-import 'package:quiz_app/resources/app_margins_paddings.dart';
 
 import '../../constants.dart';
 import '../../resources/app_strings.dart';
@@ -40,12 +39,9 @@ class ScoreScreen extends StatelessWidget {
                 ),
                 const Spacer(flex: 3),
                 ElevatedButton(
-                    style: ButtonStyle(
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.circular(AppPadding.p16))),
-                        backgroundColor: const MaterialStatePropertyAll<Color>(
-                            kSecondaryColor)),
+                    style: const ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll<Color>(kSecondaryColor)),
                     onPressed: () {
                       NavigatorHelper.pushReplacement(
                           context, const HomeScreen());

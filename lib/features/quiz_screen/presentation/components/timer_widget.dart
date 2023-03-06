@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/features/quiz_screen/cubits/quiz_screen_cubit.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
-
 class TimerWidget extends StatefulWidget {
   final int durationInMin;
   const TimerWidget({required this.durationInMin, Key? key}) : super(key: key);
@@ -35,8 +34,8 @@ class _TimerWidgetState extends State<TimerWidget> {
         QuizScreenCubit.getInst(context).onQuizTimeout(context);
       },
     );
-    // _stopWatchTimer.setPresetMinuteTime(widget.durationInMin);
-    _stopWatchTimer.setPresetSecondTime(5);
+    _stopWatchTimer.setPresetMinuteTime(widget.durationInMin);
+    // _stopWatchTimer.setPresetSecondTime(5);
     _stopWatchTimer.onExecute.add(StopWatchExecute.start);
   }
 

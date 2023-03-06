@@ -62,6 +62,8 @@
   "myCurrentLocation": "موقعي الحالي",
   "myLocation": "موقعي",
   "savingTokenError": "معذرة لقد حدثت مشكلة اثناء حفظ الملفات!",
+  "removingTokenError": "معذرة لقد حدثت مشكلة اثناء تعديل الملفات!",
+  "signOut": "تسجيل الخروج",
   "loginAsACaptain": "تسجيل الدخول ككابـتـن",
   "registerANewCaptain": "انشاء حساب ككابـتـن",
   "email": "البريد الالكتروني",

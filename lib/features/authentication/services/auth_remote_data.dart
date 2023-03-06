@@ -82,4 +82,13 @@ class AuthRemoteData {
       throw ServerException();
     }
   }
+
+  Future signOut() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+    } catch (e) {
+      debugPrint('signOut :: Auth remote repo :: Exception :: $e');
+      throw ServerException();
+    }
+  }
 }

@@ -35,6 +35,15 @@ class GeneralRepo {
     }
   }
 
+  Future<Either<Failure, Unit>> removeKey(String key) async {
+    try {
+      await generalLocalData.removeKey(key);
+      return Future.value(const Right(unit));
+    } on CacheRemovingException {
+      return Left(CacheRemovingFailure());
+    }
+  }
+
 //-------------General remote data--------------------
   Future<Either<Failure, UserModel>> getUserData() async {
     //

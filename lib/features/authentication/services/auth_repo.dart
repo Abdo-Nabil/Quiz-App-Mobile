@@ -76,5 +76,18 @@ class AuthRepo {
     }
   }
 
-  //-------------Auth local data--------------------
+  Future<Either<Failure, Unit>> signOut() async {
+    if (await networkInfo.isConnected) {
+      try {
+        await authRemoteData.signOut();
+        return const Right(unit);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(OfflineFailure());
+    }
+  }
+
+//-------------Auth local data--------------------
 }

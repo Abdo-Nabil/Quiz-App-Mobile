@@ -1,9 +1,14 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:quiz_app/core/extensions/string_extension.dart';
 import 'package:quiz_app/features/authentication/services/models/user_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../core/error/exceptions.dart';
 import '../../../core/error/failures.dart';
 import '../../../core/network/network_info.dart';
+import '../../../core/util/toast_helper.dart';
+import '../../../resources/app_strings.dart';
 import 'general_local_data.dart';
 import 'general_remote_data.dart';
 
@@ -47,6 +52,19 @@ class GeneralRepo {
   Future<String> getAppVersion() async {
     String result = await generalLocalData.getAppVersion();
     return result;
+  }
+
+  static Future<void> launchLink(String url, BuildContext context) async {
+    final Uri link = Uri.parse(url);
+    if (await canLaunchUrl(link)) {
+      await launchUrl(link);
+    } else {
+      if (context.mounted) {
+        ToastHelper.showToast(
+            context, AppStrings.canotLaunch.tr(context), ToastStates.error);
+        throw 'Could not launch $url';
+      }
+    }
   }
 
 //-------------General remote data--------------------

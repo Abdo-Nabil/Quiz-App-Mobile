@@ -28,12 +28,16 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     ToastHelper.initializeToast(context);
     initHomeScreenWithData();
-    HomeScreenCubit.getIns(context).checkAppUpdate();
+    checkForAppUpdates();
     super.initState();
   }
 
   initHomeScreenWithData() async {
     await HomeScreenCubit.getIns(context).getData();
+  }
+
+  checkForAppUpdates() {
+    HomeScreenCubit.getIns(context).checkAppUpdate();
   }
 
   @override
@@ -65,6 +69,12 @@ class _HomeScreenState extends State<HomeScreen> {
           //
           else if (state is HomeScreenNeedAppUpdateState) {
             DialogHelper.updateDialog(context);
+          }
+          //
+          else if (state is HomeScreenGetData) {
+            if (state.userModel.isBlocked) {
+              DialogHelper.blockedDialog(context);
+            }
           }
           //
         },

@@ -3,12 +3,14 @@ class UserModel {
   final String name;
   final String email;
   final String password;
+  final bool isBlocked;
 
   UserModel({
     this.userId,
     required this.name,
     required this.email,
     required this.password,
+    this.isBlocked = false,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> map) {
@@ -17,6 +19,7 @@ class UserModel {
       name: map['name'],
       email: map['email'],
       password: map['password'],
+      isBlocked: map['isBlocked'],
     );
   }
 
@@ -26,16 +29,23 @@ class UserModel {
       'name': name,
       'email': email,
       'password': password,
+      'isBlocked': isBlocked,
     };
   }
 
-  UserModel copyWith(
-      {String? userId, String? name, String? email, String? password}) {
+  UserModel copyWith({
+    String? userId,
+    String? name,
+    String? email,
+    String? password,
+    bool? isBlocked,
+  }) {
     return UserModel(
       userId: userId ?? this.userId,
       name: name ?? this.name,
       email: email ?? this.email,
       password: password ?? this.password,
+      isBlocked: isBlocked ?? this.isBlocked,
     );
   }
 }

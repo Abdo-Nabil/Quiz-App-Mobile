@@ -62,6 +62,9 @@ class AppStrings {
   //---------------Score screen---------------------------------
   static const String toHomeScreen = "toHomeScreen";
   static const String score = "score";
+  static const String youAreBlocked = 'youAreBlocked'; // 1.0.0+1
+  static const String contact = 'contact'; // 1.0.0+1
+  static const String canotLaunch = 'canotLaunch'; // 1.0.0+1
 
   //------------------------others-----------------------
   static const String appNameForRecentApp = "Quiz App";
@@ -75,6 +78,9 @@ class AppStrings {
   //
 
   static const String appBuildNumber = 'appBuildNumber'; // 1.0.0+1
+  static const String abdoEmail = 'abdo.sw.eng@gmail.com';
+  static const String emailContact =
+      'mailto:$abdoEmail?subject=Contact Request';
   static const String appUrlOnStore =
       "https://play.google.com/store/apps/details?id=com.AbdoNabil.one_dollar_app";
   static const String wordTranslationNotFound =

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/extensions/context_extension.dart';
 import 'package:quiz_app/core/extensions/string_extension.dart';
-import 'package:url_launcher/url_launcher.dart';
+import '../../features/general/services/general_repo.dart';
 import '../../resources/app_strings.dart';
 
 class DialogHelper {
@@ -68,20 +68,52 @@ class DialogHelper {
       context: context,
       barrierDismissible: false,
       builder: (context) {
-        return AlertDialog(
-          title: Text(AppStrings.alert.tr(context)),
-          content: Text(AppStrings.updateApp.tr(context)),
-          actions: [
-            TextButton(
-              onPressed: () async {
-                // Navigator.of(context).pop();
-                await _openPlayStore();
-              },
-              child: Text(
-                AppStrings.update.tr(context),
-              ),
-            )
-          ],
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: AlertDialog(
+            title: Text(AppStrings.alert.tr(context)),
+            content: Text(AppStrings.updateApp.tr(context)),
+            actions: [
+              TextButton(
+                onPressed: () async {
+                  // Navigator.of(context).pop();
+                  await GeneralRepo.launchLink(
+                      AppStrings.appUrlOnStore, context);
+                },
+                child: Text(
+                  AppStrings.update.tr(context),
+                ),
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  static Future blockedDialog(BuildContext context) {
+    return showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: AlertDialog(
+            title: Text(AppStrings.alert.tr(context)),
+            content: Text(AppStrings.youAreBlocked.tr(context)),
+            actions: [
+              TextButton(
+                onPressed: () async {
+                  // Navigator.of(context).pop();
+                  await GeneralRepo.launchLink(
+                      AppStrings.emailContact, context);
+                },
+                child: Text(
+                  AppStrings.contact.tr(context),
+                ),
+              )
+            ],
+          ),
         );
       },
     );
@@ -299,12 +331,5 @@ class LoadingDialog extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-_openPlayStore() async {
-  final Uri url = Uri.parse(AppStrings.appUrlOnStore);
-  if (!await launchUrl(url)) {
-    throw Exception('Could not launch $url');
   }
 }

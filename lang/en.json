@@ -48,5 +48,8 @@
   "question": "Question",
   "updateApp": "Please, update the app to last version.",
   "update": "Update",
+  "youAreBlocked": "You Are Blocked, please contact app creator.",
+  "contact": "Contact",
+  "canotLaunch": "Can't Launch",
   "finish": "Finish"
 }

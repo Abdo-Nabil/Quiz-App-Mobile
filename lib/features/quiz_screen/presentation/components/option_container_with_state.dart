@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../resources/app_margins_paddings.dart';
+import '../../../../resources/colors_manager.dart';
 
 class OptionContainerWithStates extends StatelessWidget {
   const OptionContainerWithStates({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class OptionContainerWithStates extends StatelessWidget {
           Container(
             decoration: ShapeDecoration(
                 color: Colors.green,
-                // color: Colors.white,
+                // color: ColorsManager.whiteColor,
                 shape: CircleBorder(
                   side: const BorderSide(color: Colors.grey, width: 2),
                 )
@@ -37,7 +38,7 @@ class OptionContainerWithStates extends StatelessWidget {
             child: Icon(
               Icons.check_sharp,
               size: 20,
-              color: Colors.white,
+              color: ColorsManager.whiteColor,
             ),
           ),
         ],

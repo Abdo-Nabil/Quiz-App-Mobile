@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../resources/app_margins_paddings.dart';
+import '../../../resources/app_margins_paddings.dart';
+import '../../../resources/colors_manager.dart';
 
 class SurroundedContainer extends StatelessWidget {
   final double height;
@@ -19,10 +20,10 @@ class SurroundedContainer extends StatelessWidget {
       width: width,
       height: height,
       decoration: ShapeDecoration(
-        // color: Colors.white,
+        // color: ColorsManager.whiteColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppPadding.p16),
-          side: const BorderSide(color: Colors.white, width: 3),
+          side: const BorderSide(color: ColorsManager.whiteColor, width: 3),
         ),
       ),
       child: child,

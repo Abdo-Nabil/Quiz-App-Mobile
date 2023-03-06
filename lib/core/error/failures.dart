@@ -12,21 +12,6 @@ class ServerFailure extends Failure {
   List<Object?> get props => [];
 }
 
-class GetCacheFailure extends Failure {
-  @override
-  List<Object?> get props => [];
-}
-
-class CacheSavingFailure extends Failure {
-  @override
-  List<Object?> get props => [];
-}
-
-class LoginVerificationFailure extends Failure {
-  @override
-  List<Object?> get props => [];
-}
-
 class TimeLimitFailure extends Failure {
   @override
   List<Object?> get props => [];
@@ -53,6 +38,16 @@ class WrongPasswordFailure extends Failure {
 }
 
 class InvalidEmailFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+}
+
+class GetCacheFailure extends Failure {
+  @override
+  List<Object?> get props => [];
+}
+
+class CacheSavingFailure extends Failure {
   @override
   List<Object?> get props => [];
 }

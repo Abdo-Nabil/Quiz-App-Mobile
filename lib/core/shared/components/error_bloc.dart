@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../resources/font_manager.dart';
+import '../../../resources/colors_manager.dart';
+import '../../../resources/font_manager.dart';
 
 class ErrorBloc extends StatelessWidget {
   const ErrorBloc({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class ErrorBloc extends StatelessWidget {
             'Sorry for that, but some thing went wrong, please report the problem.',
             style: TextStyle(
               fontSize: FontSize.s20,
-              color: Colors.white,
+              color: ColorsManager.whiteColor,
             ),
           ),
         ),

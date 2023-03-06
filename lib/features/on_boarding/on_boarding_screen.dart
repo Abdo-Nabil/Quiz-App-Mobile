@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:quiz_app/core/extensions/context_extension.dart';
 import 'package:quiz_app/core/extensions/string_extension.dart';
@@ -27,52 +26,55 @@ class OnBoardingScreen extends StatelessWidget {
     );
     //
     return Scaffold(
-      body: IntroductionScreen(
-        isBottomSafeArea: true,
-        isTopSafeArea: true,
-        showDoneButton: true,
-        done: Text(
-          AppStrings.done.tr(context),
-        ),
-        onDone: () {
-          BlocProvider.of<GeneralCubit>(context)
-              .setInitialScreen(OnBoardingScreen.routeName);
-          NavigatorHelper.pushReplacement(
-            context,
-            const LoginScreen(),
-          );
-        },
-        showSkipButton: false,
-        // skip: Text(
-        //   AppStrings.skip.tr(context),
-        // ),
-        // showNextButton: true,
-        next: const Icon(Icons.arrow_forward),
-        dotsDecorator: DotsDecorator(
-          activeColor: Theme.of(context).colorScheme.primary,
-        ),
-        pages: List.generate(
-          1,
-          (index) {
-            return PageViewModel(
-              title: 'title${index + 1}'.tr(context),
-              body: 'description${index + 1}'.tr(context),
-              image: Column(
-                children: [
-                  Expanded(
-                    child: Image.asset(
-                      'assets/images/title${index + 1}.png',
-                      fit: BoxFit.contain,
-                      height: context.height * 0.8,
-                      width: context.width * 0.8,
-                    ),
-                  ),
-                  // AddVerticalSpace(context.h)
-                ],
-              ),
-              decoration: pageDecoration,
+      body: Padding(
+        padding: const EdgeInsets.all(AppPadding.p16),
+        child: IntroductionScreen(
+          isBottomSafeArea: true,
+          isTopSafeArea: true,
+          showDoneButton: true,
+          done: Text(
+            AppStrings.done.tr(context),
+          ),
+          onDone: () {
+            BlocProvider.of<GeneralCubit>(context)
+                .setInitialScreen(OnBoardingScreen.routeName);
+            NavigatorHelper.pushReplacement(
+              context,
+              const LoginScreen(),
             );
           },
+          showSkipButton: false,
+          // skip: Text(
+          //   AppStrings.skip.tr(context),
+          // ),
+          // showNextButton: true,
+          next: const Icon(Icons.arrow_forward),
+          dotsDecorator: DotsDecorator(
+            activeColor: Theme.of(context).colorScheme.primary,
+          ),
+          pages: List.generate(
+            1,
+            (index) {
+              return PageViewModel(
+                title: 'title${index + 1}'.tr(context),
+                body: 'description${index + 1}'.tr(context),
+                image: Column(
+                  children: [
+                    Expanded(
+                      child: Image.asset(
+                        'assets/images/title${index + 1}.png',
+                        fit: BoxFit.contain,
+                        height: context.height * 0.8,
+                        width: context.width * 0.8,
+                      ),
+                    ),
+                    // AddVerticalSpace(context.h)
+                  ],
+                ),
+                decoration: pageDecoration,
+              );
+            },
+          ),
         ),
       ),
     );

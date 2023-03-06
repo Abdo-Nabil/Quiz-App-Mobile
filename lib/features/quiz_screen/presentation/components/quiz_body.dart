@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app/core/extensions/context_extension.dart';
 import 'package:quiz_app/features/home_screen/services/models/quiz_model.dart';
 
-import '../../../../core/widgets/add_vertical_space.dart';
+import '../../../../core/shared/components/add_vertical_space.dart';
 import '../../../../resources/app_margins_paddings.dart';
-import '../../../shared/keep_alive_page.dart';
+import '../../../../core/shared/keep_alive_page.dart';
 import '../../cubits/quiz_screen_cubit.dart';
 import 'option_container.dart';
+import '../../../../resources/colors_manager.dart';
 
 class QuizBody extends StatefulWidget {
   const QuizBody({Key? key}) : super(key: key);
@@ -51,7 +52,7 @@ class _QuizBodyState extends State<QuizBody> {
                 height: context.height * 0.78,
                 width: double.infinity,
                 decoration: ShapeDecoration(
-                  color: Colors.white,
+                  color: ColorsManager.whiteColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(AppPadding.p16),
                   ),
@@ -72,7 +73,7 @@ class _QuizBodyState extends State<QuizBody> {
                                   color: Colors.black,
                                   fontSize: Theme.of(context)
                                       .textTheme
-                                      .titleMedium
+                                      .headlineSmall
                                       ?.fontSize,
                                 ),
                               ),

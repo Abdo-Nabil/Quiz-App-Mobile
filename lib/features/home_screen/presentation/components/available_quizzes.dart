@@ -3,6 +3,7 @@ import 'package:quiz_app/core/extensions/string_extension.dart';
 
 import '../../../../resources/app_margins_paddings.dart';
 import '../../../../resources/app_strings.dart';
+import '../../../../resources/colors_manager.dart';
 
 class AvailableQuizzes extends StatelessWidget {
   final int numOfQuizzes;
@@ -17,7 +18,7 @@ class AvailableQuizzes extends StatelessWidget {
           child: Text(
             '${AppStrings.availableQuizzes.tr(context)} ($numOfQuizzes)',
             style: TextStyle(
-              color: Colors.white,
+              color: ColorsManager.whiteColor,
               fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
             ),
           ),

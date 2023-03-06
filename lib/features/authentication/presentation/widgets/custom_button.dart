@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../resources/app_margins_paddings.dart';
+import '../../../../resources/colors_manager.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -28,7 +29,7 @@ class CustomButton extends StatelessWidget {
             text,
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: ColorsManager.whiteColor,
                 ),
           ),
         ),

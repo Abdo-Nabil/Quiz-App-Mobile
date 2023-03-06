@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/core/extensions/context_extension.dart';
 
 import '../../../../resources/app_margins_paddings.dart';
+import '../../../../resources/colors_manager.dart';
 
 class OptionContainer extends StatelessWidget {
   final bool isSelected;
@@ -18,7 +19,9 @@ class OptionContainer extends StatelessWidget {
       height: context.height * 0.07,
       width: context.width * 0.83,
       decoration: ShapeDecoration(
-        color: isSelected ? Colors.orange.withOpacity(0.13) : Colors.white,
+        color: isSelected
+            ? Colors.orange.withOpacity(0.13)
+            : ColorsManager.whiteColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppPadding.p16),
           side: BorderSide(
@@ -51,8 +54,9 @@ class OptionContainer extends StatelessWidget {
                 ),
               ),
               child: CircleAvatar(
-                backgroundColor:
-                    isSelected ? Colors.orange.withOpacity(0.5) : Colors.white,
+                backgroundColor: isSelected
+                    ? Colors.orange.withOpacity(0.5)
+                    : ColorsManager.whiteColor,
                 radius: 10,
                 child: isSelected
                     ? const CircleAvatar(

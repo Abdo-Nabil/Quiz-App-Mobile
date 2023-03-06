@@ -4,6 +4,7 @@ import 'package:quiz_app/features/home_screen/cubits/home_screen_cubit.dart';
 
 import '../../../../resources/app_margins_paddings.dart';
 import '../../../../resources/app_strings.dart';
+import '../../../../resources/colors_manager.dart';
 
 class GreetingText extends StatelessWidget {
   final String userName;
@@ -23,7 +24,7 @@ class GreetingText extends StatelessWidget {
               Text(
                 '${AppStrings.hello.tr(context)}, $userName',
                 style: TextStyle(
-                  color: Colors.white,
+                  color: ColorsManager.whiteColor,
                   fontSize: Theme.of(context).textTheme.headlineSmall?.fontSize,
                 ),
               ),
@@ -39,7 +40,7 @@ class GreetingText extends StatelessWidget {
               },
               icon: const Icon(
                 Icons.logout,
-                color: Colors.white,
+                color: ColorsManager.whiteColor,
               ),
             ),
           ),

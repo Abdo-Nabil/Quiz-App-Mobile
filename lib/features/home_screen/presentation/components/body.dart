@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/core/extensions/context_extension.dart';
 import 'package:quiz_app/features/home_screen/presentation/components/quiz_tile.dart';
 
+import '../../../../core/shared/components/surrounded_container.dart';
 import '../../../../resources/app_margins_paddings.dart';
-import '../../../shared/surrounded_container.dart';
 
 class Body extends StatelessWidget {
   final List quizzes;
@@ -14,7 +14,7 @@ class Body extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(AppPadding.p16),
       child: SurroundedContainer(
-        height: context.height * 0.75,
+        height: context.height * 0.725,
         width: double.infinity,
         child: ListView.builder(
           itemCount: quizzes.length,

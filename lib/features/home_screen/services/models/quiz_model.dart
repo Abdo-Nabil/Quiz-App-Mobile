@@ -1,7 +1,3 @@
-// 'quizId': 'fsdfjsldfsd7fsd7fsdfsdj',
-// 'quizName': 'firist quiz',
-// 'quizDuration': 60,
-
 import 'package:quiz_app/features/home_screen/services/models/question_model.dart';
 
 class QuizModel {

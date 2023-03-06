@@ -1,108 +1,38 @@
 import 'package:flutter/material.dart';
 
 import '../../resources/app_margins_paddings.dart';
+import '../../../../resources/colors_manager.dart';
 
 class AppTheme {
   static ThemeData lightTheme(Locale locale, BuildContext context) {
     return ThemeData(
-        // textTheme: Theme.of(context)
-        //     .textTheme
-        //     .apply(bodyColor: Colors.white, displayColor: Colors.white),
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
-        dialogTheme: DialogTheme(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppPadding.p16),
-          ),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ButtonStyle(
-            shape: MaterialStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(AppPadding.p16),
-              ),
-            ),
-          ),
-        )
-
-        // fontFamily: locale.languageCode == 'en' ? 'DynaPuff' : 'Amiri',
-        // colorScheme: const ColorScheme.light().copyWith(
-        //   secondary: ColorsManager.secondary,
-        //   primary: ColorsManager.primary,
-        //   onSurface: ColorsManager.onSurface,
-        //   onSecondary: ColorsManager.onSecondary,
-        //   onBackground: ColorsManager.onBackground,
-        // ),
-        // inputDecorationTheme: InputDecorationTheme(
-        //   contentPadding: const EdgeInsets.all(AppPadding.p16),
-        //   border: OutlineInputBorder(
-        //     borderRadius: BorderRadius.circular(AppPadding.p20),
-        //   ),
-        // disabledBorder: OutlineInputBorder(
-        //   borderRadius: BorderRadius.circular(AppPadding.p20),
-        //   borderSide: BorderSide(color: Colors.white),
-        // ),
-
-        // enabledBorder: OutlineInputBorder(
-        //   borderSide: BorderSide(color: Colors.white),
-        //   borderRadius: BorderRadius.circular(AppPadding.p20),
-        // ),
-        // errorBorder: OutlineInputBorder(
-        //   borderRadius: BorderRadius.circular(AppPadding.p20),
-        // ),
-        // focusedBorder: OutlineInputBorder(
-        //   borderSide: BorderSide(color: Colors.white),
-        //   borderRadius: BorderRadius.circular(AppPadding.p20),
-        // ),
-        // focusedErrorBorder: OutlineInputBorder(
-        //   borderRadius: BorderRadius.circular(AppPadding.p20),
-        // ),
-        // ),
-        );
-  }
-
-  static ThemeData darkTheme(Locale locale, BuildContext context) {
-    return ThemeData(
-      // fontFamily: locale.languageCode == 'en' ? 'DynaPuff' : 'Amiri',
-      colorScheme: const ColorScheme.dark().copyWith(
-        primary: Colors.blue,
-        secondary: Colors.blue,
-        onPrimary: Colors.white,
-        onSecondary: Colors.deepOrange,
-
-        // onSurface: Colors.white,
-        // onSecondary: Colors.white,
-        // onBackground: Colors.white,
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        contentPadding: const EdgeInsets.all(AppPadding.p16),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppPadding.p20),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: Colors.white),
-          borderRadius: BorderRadius.circular(AppPadding.p20),
-        ),
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppPadding.p20),
-          ),
-          textStyle: const TextStyle().copyWith(
-            fontSize: Theme.of(context).textTheme.titleLarge!.fontSize,
-            fontWeight: FontWeight.bold,
-          ),
-          padding: const EdgeInsets.all(AppPadding.p14),
-        ),
+      // textTheme: Theme.of(context)
+      //     .textTheme
+      //     .apply(bodyColor: ColorsManager.whiteColor, displayColor: ColorsManager.whiteColor),
+      iconTheme: const IconThemeData(
+        color: ColorsManager.whiteColor,
       ),
       dialogTheme: DialogTheme(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppPadding.p20),
+          borderRadius: BorderRadius.circular(AppPadding.p16),
+        ),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppPadding.p16),
+            ),
+          ),
+          padding:
+              MaterialStateProperty.all(const EdgeInsets.all(AppPadding.p8)),
         ),
       ),
     );
+  }
+
+  static ThemeData darkTheme(Locale locale, BuildContext context) {
+    return ThemeData();
   }
 }
 //
@@ -111,7 +41,7 @@ class AppTheme {
 //       primaryColor: AppColors.primary,
 //       hintColor: AppColors.hint,
 //       brightness: Brightness.light,
-//       scaffoldBackgroundColor: Colors.white,
+//       scaffoldBackgroundColor: ColorsManager.whiteColor,
 //       fontFamily: AppStrings.fontFamily,
 //       appBarTheme: const AppBarTheme(
 //           centerTitle: true,
@@ -123,7 +53,7 @@ class AppTheme {
 //         bodyMedium: TextStyle(
 //             height: 1.3,
 //             fontSize: 22,
-//             color: Colors.white,
+//             color: ColorsManager.whiteColor,
 //             fontWeight: FontWeight.bold),
 //       ));
 // }

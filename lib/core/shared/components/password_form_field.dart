@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/extensions/string_extension.dart';
 
-import '../../resources/colors_manager.dart';
+import '../../../resources/colors_manager.dart';
 
 class PasswordFormFiled extends StatefulWidget {
   final BuildContext context;
@@ -46,13 +46,13 @@ class _PasswordFormFiledState extends State<PasswordFormFiled> {
       obscureText: isSecureText,
       decoration: InputDecoration(
         enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.white),
+          borderSide: BorderSide(color: ColorsManager.whiteColor),
         ),
-        prefixIconColor: Colors.white,
-        suffixIconColor: Colors.white,
+        prefixIconColor: ColorsManager.whiteColor,
+        suffixIconColor: ColorsManager.whiteColor,
         labelStyle: TextStyle(
           fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
-          color: Colors.white,
+          color: ColorsManager.whiteColor,
         ),
         labelText: widget.label.tr(context),
         prefixIcon: const Icon(Icons.key),

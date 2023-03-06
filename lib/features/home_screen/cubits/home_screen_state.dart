@@ -28,6 +28,13 @@ class HomeScreenGetData extends HomeScreenState {
   List<Object> get props => [userModel, quizzes];
 }
 
+class HomeEndLoadingWithFailureState extends HomeScreenState {
+  final String text;
+  const HomeEndLoadingWithFailureState({required this.text});
+  @override
+  List<Object> get props => [text];
+}
+
 //
 // class HomeSuccessWithPopState extends HomeScreenState {
 //   @override
@@ -55,12 +62,6 @@ class HomeScreenGetData extends HomeScreenState {
 //   List<Object> get props => [];
 // }
 //
-class HomeEndLoadingWithFailureState extends HomeScreenState {
-  final String text;
-  const HomeEndLoadingWithFailureState({required this.text});
-  @override
-  List<Object> get props => [text];
-}
 
 // class HomeLocPermissionDeniedState extends HomeScreenState {
 //   @override

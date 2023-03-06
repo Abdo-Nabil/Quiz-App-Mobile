@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_app/core/extensions/string_extension.dart';
 import 'package:quiz_app/features/home_screen/services/models/quiz_model.dart';
 import 'package:quiz_app/features/quiz_screen/cubits/quiz_screen_cubit.dart';
 import 'package:quiz_app/features/quiz_screen/presentation/components/timer_widget.dart';
+import 'package:quiz_app/resources/app_strings.dart';
 
-import '../../../../core/widgets/add_horizontal_space.dart';
+import '../../../../core/shared/components/add_horizontal_space.dart';
 import '../../../../resources/app_margins_paddings.dart';
+import '../../../../resources/colors_manager.dart';
 
 class QuizHeader extends StatelessWidget {
   const QuizHeader({
@@ -29,7 +32,7 @@ class QuizHeader extends StatelessWidget {
                   quizModel.quizName.toString(),
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: ColorsManager.whiteColor,
                     fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
                   ),
                 ),
@@ -43,17 +46,17 @@ class QuizHeader extends StatelessWidget {
         Text.rich(
           TextSpan(
             text:
-                'Question ${BlocProvider.of<QuizScreenCubit>(context, listen: true).questionNumber}',
+                '${AppStrings.question.tr(context)} ${BlocProvider.of<QuizScreenCubit>(context, listen: true).questionNumber}',
             style: TextStyle(
               fontSize: Theme.of(context).textTheme.headlineSmall?.fontSize,
-              color: Colors.white,
+              color: ColorsManager.whiteColor,
             ),
             children: <TextSpan>[
               TextSpan(
                 text: '/ ${quizModel.questions.length}',
                 style: TextStyle(
                   fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
-                  color: Colors.white,
+                  color: ColorsManager.whiteColor,
                 ),
               ),
             ],

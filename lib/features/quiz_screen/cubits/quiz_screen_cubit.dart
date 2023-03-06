@@ -19,20 +19,16 @@ class QuizScreenCubit extends Cubit<QuizScreenState> {
   }
 
   PageController quizPageViewController = PageController();
-
+  //
   int questionNumber = 1;
   QuizModel? quizModel;
-
-  onPageChanged(int index) {
-    questionNumber = index + 1;
-    emit(QuizScreenPageChangedState());
-  }
-
+  //
   List _modalAnswers = [];
   List _userAnswers = [];
   List optionsList = [];
   // optionList = [ [false,false,false],[false,false,false] ];
 
+  //
   initiateLists() {
     //
     _modalAnswers.clear();
@@ -50,6 +46,11 @@ class QuizScreenCubit extends Cubit<QuizScreenState> {
     for (var x in quizModel!.questions) {
       optionsList.add(List.generate(x.options.length, (index) => false));
     }
+  }
+
+  onPageChanged(int index) {
+    questionNumber = index + 1;
+    emit(QuizScreenPageChangedState());
   }
 
   onOptionSelect(int questionIndex, int optionIndex) {
@@ -109,6 +110,7 @@ class QuizScreenCubit extends Cubit<QuizScreenState> {
   }
 
   String _getUserScore() {
+    questionNumber = 1;
     int score = 0;
     for (int x = 0; x < _modalAnswers.length; x++) {
       if (_modalAnswers[x] == _userAnswers[x]) {

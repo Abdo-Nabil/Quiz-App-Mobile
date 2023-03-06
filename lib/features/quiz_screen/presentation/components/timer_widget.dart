@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/features/quiz_screen/cubits/quiz_screen_cubit.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import '../../../../resources/colors_manager.dart';
 
 class TimerWidget extends StatefulWidget {
   final int durationInMin;
@@ -56,7 +57,7 @@ class _TimerWidgetState extends State<TimerWidget> {
         );
         return Text(displayTime,
             style: TextStyle(
-                color: Colors.white,
+                color: ColorsManager.whiteColor,
                 fontSize: Theme.of(context).textTheme.titleLarge?.fontSize));
       },
     );

@@ -5,6 +5,7 @@ import 'package:quiz_app/core/extensions/string_extension.dart';
 import '../../../../resources/app_strings.dart';
 import '../../../home_screen/services/models/quiz_model.dart';
 import '../../cubits/quiz_screen_cubit.dart';
+import '../../../../resources/colors_manager.dart';
 
 class QuizTail extends StatelessWidget {
   const QuizTail({Key? key}) : super(key: key);
@@ -41,7 +42,7 @@ class QuizTail extends StatelessWidget {
                 child: Text(
                   AppStrings.finish.tr(context),
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: ColorsManager.whiteColor,
                   ),
                 ),
               )

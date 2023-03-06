@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/core/extensions/string_extension.dart';
 import 'package:quiz_app/core/util/dialog_helper.dart';
 import 'package:quiz_app/core/util/navigator_helper.dart';
-import 'package:quiz_app/core/widgets/add_horizontal_space.dart';
 
+import '../../../../core/shared/components/add_horizontal_space.dart';
 import '../../../../resources/app_margins_paddings.dart';
 import '../../../../resources/app_strings.dart';
+import '../../../../resources/colors_manager.dart';
 import '../../../quiz_screen/presentation/quiz_screen.dart';
 import '../../services/models/quiz_model.dart';
 
@@ -39,7 +40,7 @@ class QuizTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: AppPadding.p16),
         child: Container(
           width: double.infinity,
-          height: 75,
+          height: 80,
           decoration: ShapeDecoration(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(AppPadding.p16),
@@ -58,7 +59,7 @@ class QuizTile extends StatelessWidget {
                       Text(
                         quizModel.quizName,
                         style: TextStyle(
-                          color: Colors.white,
+                          color: ColorsManager.whiteColor,
                           overflow: TextOverflow.ellipsis,
                           fontSize:
                               Theme.of(context).textTheme.titleMedium?.fontSize,
@@ -72,9 +73,9 @@ class QuizTile extends StatelessWidget {
                           const Icon(Icons.watch_later),
                           const AddHorizontalSpace(AppPadding.p6),
                           Text(
-                            '${quizModel.quizDuration} min',
+                            '${quizModel.quizDuration} ${AppStrings.minute.tr(context)}',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: ColorsManager.whiteColor,
                               overflow: TextOverflow.ellipsis,
                               fontSize: Theme.of(context)
                                   .textTheme

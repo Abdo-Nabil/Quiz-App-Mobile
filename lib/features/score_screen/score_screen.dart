@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/extensions/string_extension.dart';
 import 'package:quiz_app/core/util/navigator_helper.dart';
-import 'package:quiz_app/features/shared/components/background_image.dart';
+import 'package:quiz_app/resources/constants_manager.dart';
 
-import '../../constants.dart';
+import '../../core/shared/components/background_image.dart';
 import '../../resources/app_strings.dart';
 import '../home_screen/presentation/home_screen.dart';
 
@@ -23,11 +23,11 @@ class ScoreScreen extends StatelessWidget {
               children: [
                 const Spacer(flex: 3),
                 Text(
-                  "Score",
+                  AppStrings.score.tr(context),
                   style: Theme.of(context)
                       .textTheme
                       .headlineLarge
-                      ?.copyWith(color: kSecondaryColor),
+                      ?.copyWith(color: ConstantsManager.kSecondaryColor),
                 ),
                 const Spacer(),
                 Text(
@@ -35,13 +35,14 @@ class ScoreScreen extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .headlineLarge
-                      ?.copyWith(color: kSecondaryColor),
+                      ?.copyWith(color: ConstantsManager.kSecondaryColor),
                 ),
                 const Spacer(flex: 3),
                 ElevatedButton(
                     style: const ButtonStyle(
-                        backgroundColor:
-                            MaterialStatePropertyAll<Color>(kSecondaryColor)),
+                      backgroundColor: MaterialStatePropertyAll<Color>(
+                          ConstantsManager.kSecondaryColor),
+                    ),
                     onPressed: () {
                       NavigatorHelper.pushReplacement(
                           context, const HomeScreen());

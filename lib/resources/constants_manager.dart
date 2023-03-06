@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 class ConstantsManager {
   static const int splashDelay = 2;
   static const int sliderAnimationTime = 300;
@@ -12,4 +14,5 @@ class ConstantsManager {
   static const int minDistanceToUpdate = 5;
   static const int captainRefreshLatLngOnFirebase = 90;
   static const int userAndCaptainRequestTimeDuration = 15;
+  static const kSecondaryColor = Color(0xFF8B94BC);
 }

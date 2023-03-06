@@ -13,7 +13,7 @@ class LoginOrRegisterText extends StatelessWidget {
       text.tr(context),
       style: TextStyle(
         fontSize: Theme.of(context).textTheme.headlineMedium!.fontSize,
-        color: Colors.white,
+        color: ColorsManager.whiteColor,
       ),
     );
   }

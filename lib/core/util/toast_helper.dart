@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../resources/app_margins_paddings.dart';
+import '../../resources/colors_manager.dart';
 
 enum ToastStates { success, error, warning }
 
@@ -29,7 +30,7 @@ class ToastHelper {
       child: Text(
         message,
         style: const TextStyle(
-          color: Colors.white,
+          color: ColorsManager.whiteColor,
         ),
       ),
     );

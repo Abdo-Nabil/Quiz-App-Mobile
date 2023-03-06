@@ -6,15 +6,15 @@ import 'package:quiz_app/features/authentication/presentation/widgets/custom_but
 import 'package:quiz_app/features/authentication/presentation/widgets/login_or_register_text.dart';
 import 'package:quiz_app/features/authentication/presentation/widgets/text_row.dart';
 import 'package:quiz_app/features/authentication/services/models/user_model.dart';
+import '../../../core/shared/components/add_vertical_space.dart';
+import '../../../core/shared/components/background_image.dart';
+import '../../../core/shared/components/custom_form_field.dart';
+import '../../../core/shared/components/password_form_field.dart';
 import '../../../core/util/dialog_helper.dart';
 import '../../../core/util/navigator_helper.dart';
-import '../../../core/widgets/add_vertical_space.dart';
-import '../../../core/widgets/custom_form_field.dart';
-import '../../../core/widgets/password_form_field.dart';
 import '../../../resources/app_margins_paddings.dart';
 import '../../../resources/app_strings.dart';
 import '../../home_screen/presentation/home_screen.dart';
-import '../../shared/components/background_image.dart';
 import '../cubits/auth_cubit.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -68,90 +68,100 @@ class _RegisterScreenState extends State<RegisterScreen> {
             // fit: StackFit.expand,
             children: [
               const BackgroundImage(),
-              SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const LoginOrRegisterText(AppStrings.register),
-                    const AddVerticalSpace(AppPadding.p20),
-                    Padding(
-                      padding: const EdgeInsets.all(AppPadding.p16),
-                      child: Form(
-                        key: _formKey,
-                        child: Column(
-                          children: [
-                            CustomFormFiled(
-                              context: context,
-                              controller: _nameController,
-                              label: AppStrings.name,
-                              prefixWidget: const Icon(Icons.person),
-                              validate: (value) {
-                                return AuthCubit.getIns(context)
-                                    .validateName(context, value);
-                              },
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    child: Container(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const LoginOrRegisterText(AppStrings.register),
+                          const AddVerticalSpace(AppPadding.p20),
+                          Padding(
+                            padding: const EdgeInsets.all(AppPadding.p16),
+                            child: Form(
+                              key: _formKey,
+                              child: Column(
+                                children: [
+                                  CustomFormFiled(
+                                    context: context,
+                                    controller: _nameController,
+                                    label: AppStrings.name,
+                                    prefixWidget: const Icon(Icons.person),
+                                    validate: (value) {
+                                      return AuthCubit.getIns(context)
+                                          .validateName(context, value);
+                                    },
+                                  ),
+                                  const AddVerticalSpace(AppPadding.p20),
+                                  CustomFormFiled(
+                                    context: context,
+                                    textInputType: TextInputType.emailAddress,
+                                    controller: _emailController,
+                                    label: AppStrings.email,
+                                    prefixWidget:
+                                        const Icon(Icons.mail_outline),
+                                    validate: (value) {
+                                      return AuthCubit.getIns(context)
+                                          .validateEmail(context, value);
+                                    },
+                                  ),
+                                  const AddVerticalSpace(AppPadding.p20),
+                                  PasswordFormFiled(
+                                    context: context,
+                                    controller: _passwordController,
+                                    label: AppStrings.password,
+                                    validate: (value) {
+                                      return AuthCubit.getIns(context)
+                                          .validatePassword(context, value);
+                                    },
+                                  ),
+                                  const AddVerticalSpace(AppPadding.p20),
+                                  PasswordFormFiled(
+                                    context: context,
+                                    controller: _rePasswordController,
+                                    label: AppStrings.reenterPassword,
+                                    validate: (value) {
+                                      return AuthCubit.getIns(context)
+                                          .validateSecondPassword(context,
+                                              value, _passwordController.text);
+                                    },
+                                  ),
+                                ],
+                              ),
                             ),
-                            const AddVerticalSpace(AppPadding.p20),
-                            CustomFormFiled(
-                              context: context,
-                              textInputType: TextInputType.emailAddress,
-                              controller: _emailController,
-                              label: AppStrings.email,
-                              prefixWidget: const Icon(Icons.mail_outline),
-                              validate: (value) {
-                                return AuthCubit.getIns(context)
-                                    .validateEmail(context, value);
-                              },
-                            ),
-                            const AddVerticalSpace(AppPadding.p20),
-                            PasswordFormFiled(
-                              context: context,
-                              controller: _passwordController,
-                              label: AppStrings.password,
-                              validate: (value) {
-                                return AuthCubit.getIns(context)
-                                    .validatePassword(context, value);
-                              },
-                            ),
-                            const AddVerticalSpace(AppPadding.p20),
-                            PasswordFormFiled(
-                              context: context,
-                              controller: _rePasswordController,
-                              label: AppStrings.reenterPassword,
-                              validate: (value) {
-                                return AuthCubit.getIns(context)
-                                    .validateSecondPassword(context, value,
-                                        _passwordController.text);
-                              },
-                            ),
-                          ],
-                        ),
+                          ),
+                          CustomButton(
+                            text: AppStrings.register.tr(context),
+                            onTap: () async {
+                              await AuthCubit.getIns(context).createNewUser(
+                                UserModel(
+                                  name: _nameController.text,
+                                  email: _emailController.text,
+                                  password: _passwordController.text.trim(),
+                                ),
+                                _formKey,
+                              );
+                            },
+                          ),
+                          TextRow(
+                            text: AppStrings.alreadyHaveAccount,
+                            textButton: AppStrings.loginNow,
+                            onTap: () {
+                              NavigatorHelper.pushAndRemoveUntil(
+                                context,
+                                const LoginScreen(),
+                              );
+                            },
+                          ),
+                        ],
                       ),
                     ),
-                    CustomButton(
-                      text: AppStrings.register.tr(context),
-                      onTap: () async {
-                        await AuthCubit.getIns(context).createNewUser(
-                          UserModel(
-                            name: _nameController.text,
-                            email: _emailController.text,
-                            password: _passwordController.text.trim(),
-                          ),
-                          _formKey,
-                        );
-                      },
-                    ),
-                    TextRow(
-                      text: AppStrings.alreadyHaveAccount,
-                      textButton: AppStrings.loginNow,
-                      onTap: () {
-                        NavigatorHelper.pushAndRemoveUntil(
-                          context,
-                          const LoginScreen(),
-                        );
-                      },
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
             ],
           ),

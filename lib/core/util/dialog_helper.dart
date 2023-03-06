@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/core/extensions/context_extension.dart';
 import 'package:quiz_app/core/extensions/string_extension.dart';
 import '../../resources/app_strings.dart';
-import '../widgets/add_horizontal_space.dart';
 
 class DialogHelper {
   static Future loadingDialog(BuildContext context) {
@@ -29,26 +28,6 @@ class DialogHelper {
                 onPressed: () {
                   Navigator.of(context).pop();
                   onOk ?? () {};
-                },
-                child: Text(AppStrings.ok.tr(context)))
-          ],
-        );
-      },
-    );
-  }
-
-  static Future requestTimeOutDialog(BuildContext context) {
-    return showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) {
-        return AlertDialog(
-          title: Text(AppStrings.requestTimeOut.tr(context)),
-          content: Text(AppStrings.requestTerminated.tr(context)),
-          actions: [
-            TextButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
                 },
                 child: Text(AppStrings.ok.tr(context)))
           ],
@@ -120,92 +99,6 @@ class DialogHelper {
               },
               child: Text(
                 AppStrings.ok.tr(context),
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  static Future notificationDialog(
-    BuildContext context,
-    Map data,
-    int duration,
-    Function onOkButton,
-    Function onCancelButton,
-  ) {
-    return showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) {
-        return AlertDialog(
-          title:
-              Text('${data['name']} ${AppStrings.xRequestsATrip.tr(context)}'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.location_on_outlined),
-                  const AddHorizontalSpace(4),
-                  Expanded(
-                    child: Text.rich(
-                      TextSpan(
-                        text: AppStrings.from.tr(context),
-                        style: const TextStyle(color: Colors.red),
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: ': ${data['origin']}',
-                              style: Theme.of(context).textTheme.bodyMedium),
-                        ],
-                      ),
-                      // '${AppStrings.from}: $origin',
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Icon(Icons.location_pin),
-                  const AddHorizontalSpace(4),
-                  Expanded(
-                    child: Text.rich(
-                      TextSpan(
-                        text: AppStrings.to.tr(context),
-                        style: const TextStyle(color: Colors.greenAccent),
-                        children: <TextSpan>[
-                          TextSpan(
-                              text: ': ${data['destination']}',
-                              style: Theme.of(context).textTheme.bodyMedium),
-                        ],
-                      ),
-                      // '${AppStrings.from}: $origin',
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () async {
-                Navigator.of(context).pop();
-                await onCancelButton();
-              },
-              child: Text(
-                AppStrings.reject.tr(context),
-              ),
-            ),
-            TextButton(
-              onPressed: () async {
-                Navigator.of(context).pop();
-                await onOkButton();
-              },
-              child: Text(
-                AppStrings.confirm.tr(context),
               ),
             ),
           ],

@@ -34,7 +34,6 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
 
   Future getData() async {
     emit(HomeLoadingState());
-    await Future.delayed(const Duration(seconds: 3));
     final either1 = await generalRepo.getUserData();
     final either2 = await homeRepo.getQuizzes();
     either1.fold(
@@ -64,7 +63,6 @@ class HomeScreenCubit extends Cubit<HomeScreenState> {
 
   Future signOut() async {
     emit(HomeLoadingState());
-    await Future.delayed(Duration(seconds: 3));
     final either = await authRepo.signOut();
     either.fold(
       (failure) {

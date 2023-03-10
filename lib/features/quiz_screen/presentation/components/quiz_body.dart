@@ -35,7 +35,8 @@ class _QuizBodyState extends State<QuizBody> {
     quizScreenCubit.quizPageViewController = pageController;
     quizScreenCubit.initiateLists();
     //
-    return Expanded(
+    return SizedBox(
+      height: context.height * 0.76,
       child: PageView.builder(
         controller: pageController,
         onPageChanged: (index) {

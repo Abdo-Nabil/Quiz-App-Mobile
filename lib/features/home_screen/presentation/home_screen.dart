@@ -86,14 +86,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   const BackgroundImage(),
                   SafeArea(
-                    child: Column(
-                      children: [
-                        GreetingText(state.userModel.name),
-                        AvailableQuizzes(state.quizzes.length),
-                        Body(
-                          quizzes: state.quizzes,
+                    child: SingleChildScrollView(
+                      child: Center(
+                        child: Container(
+                          constraints: const BoxConstraints(
+                            maxWidth: 500,
+                          ),
+                          child: Column(
+                            children: [
+                              GreetingText(state.userModel.name),
+                              AvailableQuizzes(state.quizzes.length),
+                              Body(
+                                quizzes: state.quizzes,
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ],

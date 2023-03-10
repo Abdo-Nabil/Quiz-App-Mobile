@@ -17,7 +17,7 @@
   "internetConnectionError": "يرجى التأكد من اتصالك بالانترنت!",
   "someThingWentWrong": "نأسف لحدوث خطأ ما!",
   "ok": "موافق",
-  "emptyValue": "لا يمكن ترك الحقول قارغة!",
+  "emptyValue": "لا يمكن ترك الحقل فارغ!",
   "savingTokenError": "معذرة لقد حدثت مشكلة اثناء حفظ الملفات!",
   "removingTokenError": "معذرة لقد حدثت مشكلة اثناء تعديل الملفات!",
   "signOut": "تسجيل الخروج",

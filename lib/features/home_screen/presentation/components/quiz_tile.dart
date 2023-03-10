@@ -27,7 +27,7 @@ class QuizTile extends StatelessWidget {
           context,
           AppStrings.startQuizNow.tr(context),
           () {
-            NavigatorHelper.push(
+            NavigatorHelper.pushReplacement(
               context,
               QuizScreen(
                 quizModel: quizModel,

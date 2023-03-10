@@ -28,6 +28,11 @@ class Body extends StatelessWidget {
                   quizModel: quizzes[index],
                   isDone: true,
                 ),
+                quizzes.length - 1 == index
+                    ? const SizedBox(
+                        height: AppPadding.p16,
+                      )
+                    : Container(),
               ],
             );
           },

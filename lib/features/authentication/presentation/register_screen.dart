@@ -136,6 +136,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           CustomButton(
                             text: AppStrings.register.tr(context),
+                            isExtended: true,
                             onTap: () async {
                               await AuthCubit.getIns(context).createNewUser(
                                 UserModel(

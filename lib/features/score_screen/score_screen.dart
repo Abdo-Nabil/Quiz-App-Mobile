@@ -5,6 +5,7 @@ import 'package:quiz_app/resources/constants_manager.dart';
 
 import '../../core/shared/components/background_image.dart';
 import '../../resources/app_strings.dart';
+import '../authentication/presentation/widgets/custom_button.dart';
 import '../home_screen/presentation/home_screen.dart';
 
 class ScoreScreen extends StatelessWidget {
@@ -38,21 +39,14 @@ class ScoreScreen extends StatelessWidget {
                       ?.copyWith(color: ConstantsManager.kSecondaryColor),
                 ),
                 const Spacer(flex: 3),
-                ElevatedButton(
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll<Color>(
-                          ConstantsManager.kSecondaryColor),
-                    ),
-                    onPressed: () {
-                      NavigatorHelper.pushReplacement(
-                          context, const HomeScreen());
-                    },
-                    child: Text(
-                      AppStrings.toHomeScreen.tr(context),
-                      style: TextStyle(
-                          fontSize:
-                              Theme.of(context).textTheme.titleLarge?.fontSize),
-                    )),
+                CustomButton(
+                  text: AppStrings.toHomeScreen.tr(context),
+                  buttonColor: ConstantsManager.kSecondaryColor.withAlpha(100),
+                  onTap: () {
+                    NavigatorHelper.pushReplacement(
+                        context, const HomeScreen());
+                  },
+                ),
                 const Spacer(flex: 1),
               ],
             ),

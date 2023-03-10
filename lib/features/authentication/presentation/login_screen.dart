@@ -113,6 +113,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           CustomButton(
                             text: AppStrings.login.tr(context),
+                            isExtended: true,
                             onTap: () async {
                               await AuthCubit.getIns(context).login(
                                 _emailController.text,

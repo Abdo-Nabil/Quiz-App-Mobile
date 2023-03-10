@@ -1,7 +1,7 @@
 import 'package:quiz_app/features/home_screen/services/models/question_model.dart';
 
 class QuizModel {
-  final String? quizId;
+  final String quizId;
   final String quizName;
   final int quizDuration;
   final List<QuestionModel> questions;

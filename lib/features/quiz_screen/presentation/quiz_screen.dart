@@ -33,13 +33,22 @@ class QuizScreen extends StatelessWidget {
           children: [
             const BackgroundImage(),
             SafeArea(
-              child: Column(
-                children: const [
-                  QuizHeader(),
-                  AddVerticalSpace(AppPadding.p16),
-                  QuizBody(),
-                  QuizTail(),
-                ],
+              child: Center(
+                child: Container(
+                  constraints: const BoxConstraints(
+                    maxWidth: 500,
+                  ),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: const [
+                        QuizHeader(),
+                        AddVerticalSpace(AppPadding.p16),
+                        QuizBody(),
+                        QuizTail(),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             )
           ],

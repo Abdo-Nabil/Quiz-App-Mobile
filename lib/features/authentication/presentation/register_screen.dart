@@ -134,19 +134,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                             ),
                           ),
-                          CustomButton(
-                            text: AppStrings.register.tr(context),
-                            isExtended: true,
-                            onTap: () async {
-                              await AuthCubit.getIns(context).createNewUser(
-                                UserModel(
-                                  name: _nameController.text,
-                                  email: _emailController.text,
-                                  password: _passwordController.text.trim(),
-                                ),
-                                _formKey,
-                              );
-                            },
+                          Padding(
+                            padding: const EdgeInsets.all(AppPadding.p16),
+                            child: CustomButton(
+                              text: AppStrings.register.tr(context),
+                              isExtended: true,
+                              onTap: () async {
+                                await AuthCubit.getIns(context).createNewUser(
+                                  UserModel(
+                                    name: _nameController.text,
+                                    email: _emailController.text,
+                                    password: _passwordController.text.trim(),
+                                  ),
+                                  _formKey,
+                                );
+                              },
+                            ),
                           ),
                           TextRow(
                             text: AppStrings.alreadyHaveAccount,

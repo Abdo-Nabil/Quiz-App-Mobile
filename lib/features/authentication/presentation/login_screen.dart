@@ -111,16 +111,19 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                           ),
-                          CustomButton(
-                            text: AppStrings.login.tr(context),
-                            isExtended: true,
-                            onTap: () async {
-                              await AuthCubit.getIns(context).login(
-                                _emailController.text,
-                                _passwordController.text,
-                                _formKey,
-                              );
-                            },
+                          Padding(
+                            padding: const EdgeInsets.all(AppPadding.p16),
+                            child: CustomButton(
+                              text: AppStrings.login.tr(context),
+                              isExtended: true,
+                              onTap: () async {
+                                await AuthCubit.getIns(context).login(
+                                  _emailController.text,
+                                  _passwordController.text,
+                                  _formKey,
+                                );
+                              },
+                            ),
                           ),
                           TextRow(
                             text: AppStrings.dontHaveAccount,

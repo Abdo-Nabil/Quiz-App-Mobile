@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/extensions/string_extension.dart';
 import 'package:quiz_app/core/util/navigator_helper.dart';
-import 'package:quiz_app/resources/constants_manager.dart';
 
 import '../../core/shared/components/background_image.dart';
 import '../../resources/app_strings.dart';
+import '../../resources/colors_manager.dart';
 import '../authentication/presentation/widgets/custom_button.dart';
 import '../home_screen/presentation/home_screen.dart';
 
@@ -28,7 +28,7 @@ class ScoreScreen extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .headlineLarge
-                      ?.copyWith(color: ConstantsManager.kSecondaryColor),
+                      ?.copyWith(color: ColorsManager.kSecondaryColor),
                 ),
                 const Spacer(),
                 Text(
@@ -36,12 +36,12 @@ class ScoreScreen extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .headlineLarge
-                      ?.copyWith(color: ConstantsManager.kSecondaryColor),
+                      ?.copyWith(color: ColorsManager.kSecondaryColor),
                 ),
                 const Spacer(flex: 3),
                 CustomButton(
                   text: AppStrings.toHomeScreen.tr(context),
-                  buttonColor: ConstantsManager.kSecondaryColor.withAlpha(100),
+                  buttonColor: ColorsManager.kSecondaryColor.withAlpha(100),
                   onTap: () {
                     NavigatorHelper.pushReplacement(
                         context, const HomeScreen());

@@ -12,11 +12,6 @@ class ServerFailure extends Failure {
   List<Object?> get props => [];
 }
 
-class TimeLimitFailure extends Failure {
-  @override
-  List<Object?> get props => [];
-}
-
 class WeakPasswordFailure extends Failure {
   @override
   List<Object?> get props => [];

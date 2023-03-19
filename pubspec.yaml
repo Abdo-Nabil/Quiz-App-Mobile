@@ -41,18 +41,10 @@ dependencies:
   equatable:
   dartz:
   introduction_screen:
-  #  flutter_svg: ^1.1.4
-  #  pin_code_fields: ^7.4.0
-  #  alt_sms_autofill: ^1.0.0
-  #  firebase_core:
   firebase_auth:
   cloud_firestore:
   firebase_core:
-  #  stop_watch_timer: ^1.5.0
   fluttertoast:
-  #  google_maps_flutter: ^2.2.0
-  #  flutter_polyline_points: ^1.0.0
-  #  geolocator: ^9.0.1
   http:
   get_it:
   shared_preferences:
@@ -63,14 +55,34 @@ dependencies:
   stop_watch_timer: ^1.5.0
   package_info_plus: ^3.0.3
 
-#  dio: ^4.0.6
-#  flutter_spinkit: ^5.1.0
-#  json_annotation: ^4.6.0
-#  firebase_messaging: ^13.1.0
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
+  flutter_launcher_icons:
+  flutter_native_splash:
+
+flutter_icons:
+
+  # flutter pub run flutter_launcher_icons:main
+  android: true
+  ios: true
+  image_path: "assets/images/launcher_icon.png"
+
+flutter_native_splash:
+
+  # flutter pub run flutter_native_splash:create
+  color: "#FFFFFF"
+  #background_image: "assets/bacground.png"
+  image: assets/images/launcher_icon.png
+
+  color_dark: "#2E2E2E"
+  #background_image_dark: "assets/dark-bacground.png"
+  #image_dark: assets/splash-invert.png
+
+  android: true
+  #ios: false
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

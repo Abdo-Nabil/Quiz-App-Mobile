@@ -6,7 +6,7 @@ class BackgroundImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      'assets/images/background.png',
+      'assets/images/bacground.png',
       fit: BoxFit.fill,
       height: double.infinity,
       width: double.infinity,
